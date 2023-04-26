@@ -103,6 +103,7 @@ resource "tfe_oauth_client" "gh" {
   service_provider = "github"
 }
 
+# Workspaces
 resource "tfe_workspace" "managed_ws" {
   description = "Create all workspaces specified in the input workspaces map"
   for_each = var.vars_mapped_by_workspace_name
@@ -116,6 +117,7 @@ resource "tfe_workspace" "managed_ws" {
     oauth_token_id = tfe_oauth_client.gh.oauth_token_id
   }
 }
+
 
 
 resource "random_pet" "a_dynamic_value" {
