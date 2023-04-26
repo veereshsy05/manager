@@ -117,38 +117,6 @@ resource "tfe_workspace" "managed_ws" {
   }
 }
 
-resource "tfe_variable" "managed_var" {
-  # The for_each expression expects a map or a set of strings,
-  # see https://developer.hashicorp.com/terraform/language/meta-arguments/for_each
-  # Accordingly, the flattened list of maps, local.ws_variables, is converted to a
-  # map with unique key format "workspace_name_variable_name".
-  # {
-  #   customer_1_workspace_var1 = {
-  #     ws            = ws_name
-  #     var_key       = name
-  #     var_value     = value
-  #     var_category  = string
-  #     var_hcl       = true/false
-  #     var_sensitive = true/false
-  #     ws_id         = <tfe_workspace>.id
-  #   }
-  #   customer_1_workspace_var2 = {
-  #     ...
-  #   }
-  #   ...
-  # }
-
-  for_each = {
-    for v in local.ws_variables : "${v.ws}.${v.var_key}" => v
-  }
-
-  workspace_id = each.value.ws_id
-  key          = each.value.var_key
-  value        = each.value.var_value
-  category     = each.value.var_category
-  hcl          = each.value.var_hcl
-  sensitive    = each.value.var_sensitive
-}
 
 resource "random_pet" "a_dynamic_value" {
   length = 5
