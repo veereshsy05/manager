@@ -18,8 +18,8 @@ vars_mapped_by_workspace_name = {
       value = "<AWS SECRET KEY>"
       sensitive = true
     }
-    VARIABLE_1 = {value = "value1"}
+    VARIABLE_ = {value = "value1"}
     */
-
+    WORKING_DIR = {value = "aws/ec2" }
   }
 }
