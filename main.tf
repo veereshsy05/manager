@@ -124,22 +124,7 @@ resource "tfe_workspace" "managed_ws" {
 # part of each workspace configuration in tfvar file
 
 resource "tfe_variable" "managed_var" {
-  # map with unique key format "workspace_name_variable_name".
-  # {
-  #   customer_1_workspace_var1 = {
-  #     ws            = ws_name
-  #     var_key       = name
-  #     var_value     = value
-  #     var_category  = string
-  #     var_hcl       = true/false
-  #     var_sensitive = true/false
-  #     ws_id         = <tfe_workspace>.id
-  #   }
-  #   customer_1_workspace_var2 = {
-  #     ...
-  #   }
-  #   ...
-  # }
+
 
   for_each = {
     for v in local.ws_variables : "${v.ws}.${v.var_key}" => v
