@@ -113,6 +113,7 @@ resource "tfe_workspace" "managed_ws" {
   auto_apply = true
   force_delete = true
   #assessments_enabled = true
+  working_directory = var.vars_mapped_by_workspace_name[each.key]["WORKING_DIR"].value
   vcs_repo {
     identifier = var.vcs_repo_identifier
     #oauth_token_id = data.tfe_oauth_client.gh.oauth_token_id  #lookup(data.tfe_variables.variable_list[VCS_TOKEN].   tfe_workspace.managed_ws[ws_name].id
