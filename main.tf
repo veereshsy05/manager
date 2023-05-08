@@ -110,7 +110,7 @@ resource "tfe_workspace" "managed_ws" {
 
   name = each.key
   organization = data.tfe_organization_membership.org.organization
-  #auto_apply = true
+  auto_apply = true
   force_delete = true
   #assessments_enabled = true
   vcs_repo {
