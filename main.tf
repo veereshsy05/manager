@@ -111,7 +111,7 @@ resource "tfe_workspace" "managed_ws" {
   name = each.key
   organization = data.tfe_organization_membership.org.organization
   auto_apply = true
-  force_delete = true
+  force_delete = false
   #assessments_enabled = true
   working_directory = var.vars_mapped_by_workspace_name[each.key]["WORKING_DIR"].value
   vcs_repo {
