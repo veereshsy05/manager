@@ -6,10 +6,11 @@ variable "tf_organization" {
   description = "The Terraform Cloud or Enterprise organization under which all operations should be performed."
   type = string
 }
-
+/*
 variable "vcs_repo_identifier" {
   type = string
 }
+*/
 variable "org_user_email" {
   type = string
 }
