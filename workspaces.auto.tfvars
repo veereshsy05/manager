@@ -21,6 +21,6 @@ vars_mapped_by_workspace_name = {
     VARIABLE_ = {value = "value1"}
     */
     VCS_REPO_ID = {value = "veereshsy05/mvc-demos"}
-    #WORKING_DIR = {value = "aws/ec2"}
+    WORKING_DIR = {value = "aws/ec2"}
   }
 }
