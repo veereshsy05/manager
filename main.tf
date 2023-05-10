@@ -113,10 +113,10 @@ resource "tfe_workspace" "managed_ws" {
   auto_apply = true
   force_delete = false
   #assessments_enabled = true
-  working_directory = var.vars_mapped_by_workspace_name[each.key]["WORKING_DIR"].value
+  working_directory = lookup(var.vars_mapped_by_workspace_name[each.key],"WORKING_DIR",null) == null ? null : lookup(var.vars_mapped_by_workspace_name[each.key],"WORKING_DIR",null).value
   vcs_repo {
-    identifier = var.vcs_repo_identifier
-    #oauth_token_id = data.tfe_oauth_client.gh.oauth_token_id  #lookup(data.tfe_variables.variable_list[VCS_TOKEN].   tfe_workspace.managed_ws[ws_name].id
+    #identifier = var.vcs_repo_identifier
+    identifier = lookup(var.vars_mapped_by_workspace_name[each.key],"VCS_REPO_ID", "" ).value 
     oauth_token_id = data.tfe_oauth_client.gh.oauth_token_id #lookup(var.vars_mapped_by_workspace_name[each.key], "VCS_ID_TOKEN") #.value ,"VCS_ID_TOKEN","default").value #lookup(data.tfe_variables.variable_list[VCS_TOKEN].   tfe_workspace.managed_ws[ws_name].id
   }
 }
