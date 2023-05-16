@@ -102,7 +102,7 @@ output "vcs_token_id" {
 }
 */
 
-/*
+
 # Workspaces to be created in Terraform Cloud
 resource "tfe_workspace" "managed_ws" {
   description = "Create all workspaces specified in the input workspaces map"
@@ -121,10 +121,10 @@ resource "tfe_workspace" "managed_ws" {
     oauth_token_id = data.tfe_oauth_client.gh.oauth_token_id #lookup(var.vars_mapped_by_workspace_name[each.key], "VCS_ID_TOKEN") #.value ,"VCS_ID_TOKEN","default").value #lookup(data.tfe_variables.variable_list[VCS_TOKEN].   tfe_workspace.managed_ws[ws_name].id
   }
 }
-*/
-# Variables to be created for individual workspace
+
+    # Variables to be created for individual workspace
 # part of each workspace configuration in tfvar file
-/*
+
 resource "tfe_variable" "managed_var" {
 
 
@@ -139,4 +139,4 @@ resource "tfe_variable" "managed_var" {
   hcl          = each.value.var_hcl
   sensitive    = each.value.var_sensitive
 }
-  */
+
