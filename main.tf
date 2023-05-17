@@ -64,7 +64,7 @@ output "ws_variables" {
     value = var.vars_mapped_by_workspace_name
 }
 */
-
+/*
 
 locals {
   #   [{
@@ -139,4 +139,5 @@ resource "tfe_variable" "managed_var" {
   hcl          = each.value.var_hcl
   sensitive    = each.value.var_sensitive
 }
+  */
 
