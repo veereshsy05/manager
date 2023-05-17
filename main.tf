@@ -65,7 +65,7 @@ output "ws_variables" {
 }
 */
 
-/*
+
 locals {
   #   [{
   #     ws            = ws_name
@@ -91,8 +91,8 @@ locals {
   ])
   
 }
-*/
-output "var_list" {
+
+  output "var_list" {
   value = data.tfe_variables.variable_list
   #value = locals.ws_params
 }
@@ -101,7 +101,7 @@ output "vcs_token_id" {
   value = var.vcs_token_id  != ""  ? var.vcs_token_id : data.tfe_variables.variable_list.variables[index(data.tfe_variables.variable_list.variables.*.name,"VCS_TOKEN_ID")].value 
 }
 */
-/*
+
 # Workspaces to be created in Terraform Cloud
 resource "tfe_workspace" "managed_ws" {
   description = "Create all workspaces specified in the input workspaces map"
@@ -138,5 +138,4 @@ resource "tfe_variable" "managed_var" {
   hcl          = each.value.var_hcl
   sensitive    = each.value.var_sensitive
 }
-  */
 
