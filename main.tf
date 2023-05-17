@@ -65,7 +65,7 @@ output "ws_variables" {
 }
 */
 
-
+/*
 locals {
   #   [{
   #     ws            = ws_name
@@ -91,7 +91,7 @@ locals {
   ])
   
 }
-
+*/
 output "var_list" {
   value = data.tfe_variables.variable_list
   #value = locals.ws_params
@@ -124,7 +124,7 @@ resource "tfe_workspace" "managed_ws" {
 
     # Variables to be created for individual workspace
 # part of each workspace configuration in tfvar file
-
+/*
 resource "tfe_variable" "managed_var" {
 
 
@@ -139,4 +139,5 @@ resource "tfe_variable" "managed_var" {
   hcl          = each.value.var_hcl
   sensitive    = each.value.var_sensitive
 }
+  */
 
